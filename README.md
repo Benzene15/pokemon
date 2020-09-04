@@ -1,2 +1,4 @@
 # pokemon
-Making an AI that can detect pokemon because I am tired of being beat by the people on discord in the pokemon chat. 
+Deviating a little bit from the plan a bit because of the lack of image data for all 809 pokemon. Now just for the first gen ~150 pokemon
+
+# Accuracy: 25%-28%
