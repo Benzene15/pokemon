@@ -6,7 +6,7 @@ import tensorflow as tf
 
 from sklearn.model_selection import train_test_split
 
-EPOCHS=1000
+EPOCHS=10000
 IMG_WIDTH=30
 IMG_HEIGHT=30
 NUM_CATEGORIES=150
@@ -32,7 +32,7 @@ def main():
     if(len(sys.argv)==2):
         filename = sys.argv[1]
         model.save(filename)
-        print("Model saved to {filename}.")
+        print("Model saved to "+filename+".")
 
 
 def load_data(data_dir):
