@@ -6,7 +6,7 @@ import tensorflow as tf
 
 from sklearn.model_selection import train_test_split
 
-EPOCHS=10000
+EPOCHS=1000000
 IMG_WIDTH=30
 IMG_HEIGHT=30
 NUM_CATEGORIES=150
