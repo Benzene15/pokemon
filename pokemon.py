@@ -10,7 +10,7 @@ from tensorflow.keras.layers import Conv2D, BatchNormalization, MaxPool2D, Flatt
 
 from sklearn.model_selection import train_test_split
 
-EPOCHS=50
+EPOCHS=1000000
 IMG_WIDTH=30
 IMG_HEIGHT=30
 NUM_CATEGORIES=150
