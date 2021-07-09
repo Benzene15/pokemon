@@ -9,8 +9,9 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, BatchNormalization, MaxPool2D, Flatten, Dense, Dropout
 
 from sklearn.model_selection import train_test_split
+from matplotlib import pyplot
 
-EPOCHS=1000000
+EPOCHS=1000
 IMG_WIDTH=30
 IMG_HEIGHT=30
 NUM_CATEGORIES=150
@@ -33,7 +34,7 @@ def main():
     model = get_model()
 
     #Train the model
-    model.fit(x_train, y_train, epochs=EPOCHS, batch_size=32)
+    history = model.fit(x_train, y_train, epochs=EPOCHS, nb_epoch=EPOCHS, batch_size=32)
 
     #Evaluate the model
     model.evaluate(x_test,  y_test, verbose=2)
@@ -46,6 +47,13 @@ def main():
         filename = sys.argv[1]
         model.save(filename)
         print("Model saved to c"+filename+".")
+
+    '''pyplot.title('Loss / Mean Squared Error')
+    pyplot.plot(history.history['loss'], label='train')
+    pyplot.plot(history.history['val_loss'], label='test')
+    pyplot.legend()
+    pyplot.savefig('losses/loss.png')
+    pyplot.show()'''
 
 
 def load_data(data_dir):
@@ -91,10 +99,10 @@ def get_model():
                     Dropout(0.2),
 
                     Dense(units = 1024, activation = "relu"),
-                    Dropout(0.2),
+                    Dropout(0.1),
 
                     Dense(units = 512, activation = "relu"),
-                    Dropout(0.2),
+                    Dropout(0.1),
                     
                     Dense(NUM_CATEGORIES, activation="softmax"),
     ])
